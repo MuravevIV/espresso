@@ -73,7 +73,7 @@
                             <mainClass>com.ilyamur.espresso.Application</mainClass>
                         </manifest>
                     </archive>
-                    <finalName>application/${project.artifactId}</finalName>
+                    <finalName>${project.artifactId}</finalName>
                     <appendAssemblyId>false</appendAssemblyId>
                 </configuration>
                 <executions>
@@ -99,11 +99,10 @@
                             <goal>copy-resources</goal>
                         </goals>
                         <configuration>
-                            <outputDirectory>${basedir}/target/application/conf</outputDirectory>
+                            <outputDirectory>${basedir}/target/application</outputDirectory>
                             <resources>
                                 <resource>
-                                    <directory>conf</directory>
-                                    <filtering>true</filtering>
+                                    <directory>./conf/</directory>
                                 </resource>
                             </resources>
                         </configuration>
