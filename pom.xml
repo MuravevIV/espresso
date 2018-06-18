@@ -60,6 +60,34 @@
     <build>
         <plugins>
 
+            <!-- assembly -->
+            <plugin>
+                <artifactId>maven-assembly-plugin</artifactId>
+                <version>3.0.0</version>
+                <configuration>
+                    <descriptorRefs>
+                        <descriptorRef>jar-with-dependencies</descriptorRef>
+                    </descriptorRefs>
+                    <archive>
+                        <manifest>
+                            <mainClass>com.ilyamur.espresso.Application</mainClass>
+                        </manifest>
+                    </archive>
+                    <finalName>application/${project.artifactId}</finalName>
+                    <appendAssemblyId>false</appendAssemblyId>
+                </configuration>
+                <executions>
+                    <execution>
+                        <id>make-assembly</id>
+                        <phase>package</phase>
+                        <goals>
+                            <goal>single</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+
+            <!-- Pitest - pitest.org -->
             <plugin>
                 <groupId>org.pitest</groupId>
                 <artifactId>pitest-maven</artifactId>
