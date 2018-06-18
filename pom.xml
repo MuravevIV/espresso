@@ -16,11 +16,12 @@
         <guava.version>19.0</guava.version>
         <commons-lang3.version>3.4</commons-lang3.version>
         <commons-io.version>2.5</commons-io.version>
-        <spring.version>4.3.2.RELEASE</spring.version>
-        <hsqldb.version>2.3.4</hsqldb.version>
 
-        <slf4j-api.version>1.7.12</slf4j-api.version>
-        <logback-classic.version>1.1.3</logback-classic.version>
+        <slf4j.version>1.7.12</slf4j.version>
+        <logback.version>1.1.3</logback.version>
+
+        <mockito.version>1.10.19</mockito.version>
+        <junit.version>4.12</junit.version>
 
         <pitest-maven.version>1.1.9</pitest-maven.version>
         <pitest.targetClasses>com.ilyamur.espresso.*</pitest.targetClasses>
@@ -114,12 +115,12 @@
         <dependency>
             <groupId>org.slf4j</groupId>
             <artifactId>slf4j-api</artifactId>
-            <version>${slf4j-api.version}</version>
+            <version>${slf4j.version}</version>
         </dependency>
         <dependency>
             <groupId>ch.qos.logback</groupId>
             <artifactId>logback-classic</artifactId>
-            <version>${logback-classic.version}</version>
+            <version>${logback.version}</version>
             <scope>runtime</scope>
         </dependency>
 
@@ -127,19 +128,13 @@
         <dependency>
             <groupId>junit</groupId>
             <artifactId>junit</artifactId>
-            <version>4.12</version>
-            <scope>test</scope>
-        </dependency>
-        <dependency>
-            <groupId>org.springframework</groupId>
-            <artifactId>spring-test</artifactId>
-            <version>${spring.version}</version>
+            <version>${junit.version}</version>
             <scope>test</scope>
         </dependency>
         <dependency>
             <groupId>org.mockito</groupId>
             <artifactId>mockito-all</artifactId>
-            <version>1.10.19</version>
+            <version>${mockito.version}</version>
         </dependency>
 
     </dependencies>
