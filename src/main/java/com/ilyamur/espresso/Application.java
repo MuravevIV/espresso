@@ -9,7 +9,7 @@ public class Application {
     private static final Logger log = LoggerFactory.getLogger(Application.class);
 
     public static void main(String[] args) {
-        Config config = ApplicationConfig.prepare(args);
+        Config config = ApplicationConfig.load(args);
         log.info("ok, config: " + config);
         System.out.println("ok");
     }

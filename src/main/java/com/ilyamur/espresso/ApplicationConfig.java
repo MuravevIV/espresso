@@ -13,8 +13,8 @@ import java.util.Map;
 
 class ApplicationConfig {
 
-    static Config prepare(String[] args) {
-        Config defaultConfig = ConfigFactory.defaultReference();
+    static Config load(String[] args) {
+        Config defaultConfig = ConfigFactory.load();
         Config argsConfig = getArgumentsConfig(args);
         Config envConfig = getEnvironmentConfig(argsConfig);
 
