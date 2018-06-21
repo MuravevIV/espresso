@@ -2,12 +2,10 @@ package com.ilyamur.espresso;
 
 import org.junit.Test;
 
-import java.net.URISyntaxException;
-
 public class ApplicationTest {
 
     @Test
-    public void testMain() throws URISyntaxException {
+    public void testMain() {
         Application.main(new String[]{});
     }
 }

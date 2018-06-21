@@ -1,4 +1,4 @@
-package com.ilyamur.espresso;
+package com.ilyamur.espresso.util;
 
 import com.google.common.base.Joiner;
 import com.google.common.collect.Lists;
@@ -11,14 +11,22 @@ import java.io.File;
 import java.util.List;
 import java.util.Map;
 
-class ApplicationConfig {
+public class ApplicationConfig {
 
-    static Config load(String[] args) {
+    public static Config load(String[] args) {
         Config defaultConfig = ConfigFactory.load();
         Config argsConfig = getArgumentsConfig(args);
         Config envConfig = getEnvironmentConfig(argsConfig);
 
         return argsConfig.withFallback(envConfig.withFallback(defaultConfig));
+    }
+
+    public static Config getArgsMap(Config config) {
+        return config.getConfig("args-map");
+    }
+
+    public static List<Object> getArgsList(Config config) {
+        return config.getList("args-list").unwrapped();
     }
 
     private static Config getEnvironmentConfig(Config argsConfig) {
