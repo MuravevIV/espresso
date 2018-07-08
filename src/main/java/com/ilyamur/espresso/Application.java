@@ -11,7 +11,7 @@ public class Application {
 
     public static void main(String[] args) {
         Config config = ApplicationConfig.load(args);
-        log.info("ok, config: " + config);
-        System.out.println("ok");
+        //
+
     }
 }
