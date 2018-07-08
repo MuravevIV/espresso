@@ -11,6 +11,14 @@
     </parent>
     <artifactId>espresso-handlers</artifactId>
 
-    <!-- todo -->
+    <dependencies>
+
+        <dependency>
+            <groupId>com.ilyamur</groupId>
+            <artifactId>espresso-core</artifactId>
+            <version>${project.version}</version>
+        </dependency>
+
+    </dependencies>
 
 </project>

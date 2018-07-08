@@ -1,13 +1,12 @@
 package com.ilyamur.espresso.web;
 
 import com.ilyamur.espresso.web.handler.CommandHandler;
+import com.ilyamur.espresso.web.handler.TextHandler;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import org.telegram.telegrambots.api.methods.send.SendMessage;
 import org.telegram.telegrambots.api.objects.Message;
 import org.telegram.telegrambots.api.objects.Update;
 import org.telegram.telegrambots.bots.TelegramLongPollingBot;
-import org.telegram.telegrambots.exceptions.TelegramApiException;
 import org.telegram.telegrambots.logging.BotLogger;
 
 import java.util.Arrays;
@@ -21,6 +20,9 @@ public class ApplicationBot extends TelegramLongPollingBot {
     @Autowired(required = false)
     private List<CommandHandler> commandHandlers = Collections.emptyList();
 
+    @Autowired(required = false)
+    private List<TextHandler> textHandlers = Collections.emptyList();
+
     @Override
     public void onUpdateReceived(Update update) {
         if (update.hasMessage()) {
@@ -28,6 +30,8 @@ public class ApplicationBot extends TelegramLongPollingBot {
             if (message.hasText()) {
                 if (message.isCommand()) {
                     handleCommandMessage(message);
+                } else {
+                    handleTextMessage(message);
                 }
             } else {
                 BotLogger.debug(Constants.BOT_NAME, "empty message");
@@ -45,14 +49,10 @@ public class ApplicationBot extends TelegramLongPollingBot {
                 .forEach(h -> h.accept(message));
     }
 
-    @Override
-    public String getBotUsername() {
-        return ApplicationBotConfig.COMMANDS_USER;
-    }
-
-    @Override
-    public String getBotToken() {
-        return ApplicationBotConfig.COMMANDS_TOKEN;
+    private void handleTextMessage(Message message) {
+        textHandlers.stream()
+                .sorted()
+                .forEach(h -> h.accept(message));
     }
 
     private String getCommandName(Message message) {
@@ -61,26 +61,18 @@ public class ApplicationBot extends TelegramLongPollingBot {
                 .orElse("");
     }
 
-    public String[] getCommandArgs(Message message) {
-        return getCommandStream(message)
-                .skip(1)
-                .filter(s -> !s.isEmpty())
-                .toArray(String[]::new);
-    }
-
     private Stream<String> getCommandStream(Message message) {
         String[] commandSplit = message.getText().substring(1).split(" ");
         return Arrays.stream(commandSplit);
     }
 
-    public void respond(Message message, String text) {
-        SendMessage echoMessage = new SendMessage();
-        echoMessage.setChatId(message.getChatId().toString());
-        echoMessage.setText(text);
-        try {
-            sendMessage(echoMessage);
-        } catch (TelegramApiException e) {
-            BotLogger.error(Constants.BOT_NAME, e);
-        }
+    @Override
+    public String getBotUsername() {
+        return ApplicationBotConfig.COMMANDS_USER;
+    }
+
+    @Override
+    public String getBotToken() {
+        return ApplicationBotConfig.COMMANDS_TOKEN;
     }
 }

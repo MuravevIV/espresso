@@ -1,6 +1,8 @@
 package com.ilyamur.espresso.starter;
 
+import com.ilyamur.espresso.handlers.EspressoHandlersConfiguration;
 import com.ilyamur.espresso.web.ApplicationBotStarter;
+import com.ilyamur.espresso.web.EspressoCoreConfiguration;
 import com.ilyamur.espresso.web.EspressoWebConfiguration;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.SpringApplication;
@@ -10,7 +12,11 @@ import org.springframework.context.annotation.Import;
 import javax.annotation.PostConstruct;
 
 @SpringBootApplication
-@Import(EspressoWebConfiguration.class)
+@Import({
+        EspressoCoreConfiguration.class,
+        EspressoHandlersConfiguration.class,
+        EspressoWebConfiguration.class
+})
 public class EspressoApplication {
 
     @Autowired
