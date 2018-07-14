@@ -1,9 +1,9 @@
 package com.ilyamur.espresso.starter;
 
-import com.ilyamur.espresso.bot.ApplicationBotStarter;
-import com.ilyamur.espresso.bot.EspressoBotConfiguration;
-import com.ilyamur.espresso.bot.EspressoWebConfiguration;
-import com.ilyamur.espresso.bot.handlers.EspressoBotHandlersConfiguration;
+import com.ilyamur.espresso.web.ApplicationBotStarter;
+import com.ilyamur.espresso.web.EspressoBotConfiguration;
+import com.ilyamur.espresso.web.EspressoWebConfiguration;
+import com.ilyamur.espresso.web.handlers.EspressoBotHandlersConfiguration;
 import com.ilyamur.espresso.core.ApplicationCoreStarter;
 import com.ilyamur.espresso.core.EspressoCoreConfiguration;
 import com.ilyamur.espresso.data.EspressoDataConfiguration;

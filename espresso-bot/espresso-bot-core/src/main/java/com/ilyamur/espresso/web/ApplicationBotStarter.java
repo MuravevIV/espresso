@@ -1,4 +1,4 @@
-package com.ilyamur.espresso.bot;
+package com.ilyamur.espresso.web;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;

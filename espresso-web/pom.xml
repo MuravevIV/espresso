@@ -18,6 +18,18 @@
     <dependencies>
 
         <dependency>
+            <groupId>com.ilyamur</groupId>
+            <artifactId>espresso-core</artifactId>
+            <version>${project.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>com.ilyamur</groupId>
+            <artifactId>espresso-data</artifactId>
+            <version>${project.version}</version>
+        </dependency>
+
+        <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-web</artifactId>
         </dependency>

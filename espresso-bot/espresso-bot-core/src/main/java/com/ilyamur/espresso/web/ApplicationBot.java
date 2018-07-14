@@ -1,7 +1,7 @@
-package com.ilyamur.espresso.bot;
+package com.ilyamur.espresso.web;
 
-import com.ilyamur.espresso.bot.handler.CommandHandler;
-import com.ilyamur.espresso.bot.handler.TextHandler;
+import com.ilyamur.espresso.web.handler.CommandHandler;
+import com.ilyamur.espresso.web.handler.TextHandler;
 import com.ilyamur.espresso.core.ApplicationConfig;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;

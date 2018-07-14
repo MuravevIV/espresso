@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
 <head>
     <title>Espresso</title>
     <meta charset="utf-8"/>
@@ -7,6 +7,8 @@
 <body>
 
 <h2>Espresso</h2>
+
+<p th:each="echoMessage : ${echoMessages}" th:text="${echoMessage.text}">Echo message text</p>
 
 </body>
 </html>
