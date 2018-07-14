@@ -10,6 +10,7 @@
     <packaging>pom</packaging>
 
     <modules>
+        <module>espresso-data</module>
         <module>espresso-bot</module>
         <module>espresso-web</module>
         <module>espresso-starter</module>

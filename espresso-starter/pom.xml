@@ -21,9 +21,16 @@
 
         <dependency>
             <groupId>com.ilyamur</groupId>
-            <artifactId>espresso-handlers</artifactId>
+            <artifactId>espresso-bot-core</artifactId>
             <version>${project.version}</version>
         </dependency>
+
+        <dependency>
+            <groupId>com.ilyamur</groupId>
+            <artifactId>espresso-bot-handlers</artifactId>
+            <version>${project.version}</version>
+        </dependency>
+
 
         <dependency>
             <groupId>com.ilyamur</groupId>
