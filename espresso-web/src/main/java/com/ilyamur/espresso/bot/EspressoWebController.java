@@ -1,4 +1,4 @@
-package com.ilyamur.espresso.web;
+package com.ilyamur.espresso.bot;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;

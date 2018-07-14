@@ -17,6 +17,12 @@
 
     <dependencies>
 
+        <dependency>
+            <groupId>com.ilyamur</groupId>
+            <artifactId>espresso-core</artifactId>
+            <version>${project.version}</version>
+        </dependency>
+
         <!-- Telegram API -->
         <dependency>
             <groupId>org.telegram</groupId>

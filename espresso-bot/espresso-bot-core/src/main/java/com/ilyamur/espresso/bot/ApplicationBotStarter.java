@@ -1,4 +1,4 @@
-package com.ilyamur.espresso.web;
+package com.ilyamur.espresso.bot;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -16,7 +16,7 @@ public class ApplicationBotStarter {
         ApiContextInitializer.init();
     }
 
-    public void init() {
+    public void run() {
         try {
             TelegramBotsApi telegramBotsApi = new TelegramBotsApi();
             telegramBotsApi.registerBot(applicationBot);

@@ -1,4 +1,4 @@
-package com.ilyamur.espresso.web;
+package com.ilyamur.espresso.bot;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;

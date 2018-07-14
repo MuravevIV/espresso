@@ -1,7 +1,8 @@
-package com.ilyamur.espresso.web;
+package com.ilyamur.espresso.bot;
 
-import com.ilyamur.espresso.web.handler.CommandHandler;
-import com.ilyamur.espresso.web.handler.TextHandler;
+import com.ilyamur.espresso.bot.handler.CommandHandler;
+import com.ilyamur.espresso.bot.handler.TextHandler;
+import com.ilyamur.espresso.core.ApplicationConfig;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.telegram.telegrambots.api.objects.Message;
@@ -68,11 +69,11 @@ public class ApplicationBot extends TelegramLongPollingBot {
 
     @Override
     public String getBotUsername() {
-        return ApplicationBotConfig.COMMANDS_USER;
+        return ApplicationConfig.bot.username;
     }
 
     @Override
     public String getBotToken() {
-        return ApplicationBotConfig.COMMANDS_TOKEN;
+        return ApplicationConfig.bot.token;
     }
 }

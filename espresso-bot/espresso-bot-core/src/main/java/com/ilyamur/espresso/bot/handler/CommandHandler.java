@@ -1,4 +1,4 @@
-package com.ilyamur.espresso.web.handler;
+package com.ilyamur.espresso.bot.handler;
 
 import org.telegram.telegrambots.api.objects.Message;
 

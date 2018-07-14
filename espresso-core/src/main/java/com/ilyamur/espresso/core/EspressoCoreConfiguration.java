@@ -1,9 +1,9 @@
-package com.ilyamur.espresso.handlers;
+package com.ilyamur.espresso.core;
 
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
 
 @Configuration
 @ComponentScan
-public class EspressoHandlersConfiguration {
+public class EspressoCoreConfiguration {
 }

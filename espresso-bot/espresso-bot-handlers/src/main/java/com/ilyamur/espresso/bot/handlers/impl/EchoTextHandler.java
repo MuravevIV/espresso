@@ -1,9 +1,9 @@
-package com.ilyamur.espresso.handlers.impl;
+package com.ilyamur.espresso.bot.handlers.impl;
 
 import com.ilyamur.espresso.data.entity.EchoMessage;
 import com.ilyamur.espresso.data.repository.EchoMessageHistoryRepository;
-import com.ilyamur.espresso.web.ApplicationBotApi;
-import com.ilyamur.espresso.web.handler.TextHandler;
+import com.ilyamur.espresso.bot.ApplicationBotApi;
+import com.ilyamur.espresso.bot.handler.TextHandler;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import org.telegram.telegrambots.api.objects.Message;

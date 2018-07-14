@@ -1,4 +1,4 @@
-package com.ilyamur.espresso.web;
+package com.ilyamur.espresso.bot;
 
 public class Constants {
 
