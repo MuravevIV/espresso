@@ -6,10 +6,10 @@
 
     <parent>
         <groupId>com.ilyamur</groupId>
-        <artifactId>espresso</artifactId>
+        <artifactId>espresso-bot</artifactId>
         <version>1.0-SNAPSHOT</version>
     </parent>
-    <artifactId>espresso-core</artifactId>
+    <artifactId>espresso-bot-core</artifactId>
 
     <properties>
         <telegrambots.version>3.6.1</telegrambots.version>

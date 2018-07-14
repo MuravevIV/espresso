@@ -6,16 +6,16 @@
 
     <parent>
         <groupId>com.ilyamur</groupId>
-        <artifactId>espresso</artifactId>
+        <artifactId>espresso-bot</artifactId>
         <version>1.0-SNAPSHOT</version>
     </parent>
-    <artifactId>espresso-handlers</artifactId>
+    <artifactId>espresso-bot-handlers</artifactId>
 
     <dependencies>
 
         <dependency>
             <groupId>com.ilyamur</groupId>
-            <artifactId>espresso-core</artifactId>
+            <artifactId>espresso-bot-core</artifactId>
             <version>${project.version}</version>
         </dependency>
 
