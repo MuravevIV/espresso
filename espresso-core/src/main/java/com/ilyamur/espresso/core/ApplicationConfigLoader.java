@@ -13,7 +13,7 @@ import java.util.Map;
 
 public class ApplicationConfigLoader {
 
-    public static Config load(String[] args) {
+    public static void load(String[] args) {
         Config argsConfig = getArgumentsConfig(args);
         Config envConfig = getEnvironmentConfig(argsConfig);
         Config defaultConfig = ConfigFactory.defaultReference();
@@ -21,8 +21,6 @@ public class ApplicationConfigLoader {
         Config mainConfig = argsConfig.withFallback(envConfig.withFallback(defaultConfig));
 
         ApplicationConfig.load(mainConfig);
-
-        return mainConfig;
     }
 
     public static Config getArgsMap(Config config) {

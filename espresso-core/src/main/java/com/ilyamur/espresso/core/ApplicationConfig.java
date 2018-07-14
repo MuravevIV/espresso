@@ -19,4 +19,11 @@ public class ApplicationConfig {
         public static final String username = mainConfig.getString(BOT_PREFIX + "username");
         public static final String token = mainConfig.getString(BOT_PREFIX + "token");
     }
+
+    public static class http {
+
+        private static String HTTP_PREFIX = ROOT_PREFIX + "http.";
+
+        public static final int port = mainConfig.getInt(HTTP_PREFIX + "port");
+    }
 }
