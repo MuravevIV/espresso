@@ -1,8 +1,8 @@
 package com.ilyamur.espresso;
 
-public class FileProcessor {
+public class AppFileProcessor {
 
     public String process(String fileContent) {
-        return null; // todo
+        return fileContent + "!";
     }
 }

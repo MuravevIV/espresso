@@ -12,15 +12,15 @@ public class ApplicationTest {
 
     private Application application;
     private AppFileReader appFileReader;
-    private FileProcessor fileProcessor;
+    private AppFileProcessor appFileProcessor;
     private AppOutput appOutput;
 
     @Before
     public void before() {
-        fileProcessor = mock(FileProcessor.class);
+        appFileProcessor = mock(AppFileProcessor.class);
         appFileReader = mock(AppFileReader.class);
         appOutput = mock(AppOutput.class);
-        application = new Application(fileProcessor, appFileReader, appOutput);
+        application = new Application(appFileProcessor, appFileReader, appOutput);
     }
 
     @Test
@@ -31,9 +31,8 @@ public class ApplicationTest {
         ApplicationConfigLoader.load(new String[]{
                 "-file", fileName
         });
-
         when(appFileReader.readFile(fileName)).thenReturn(fileContent);
-        when(fileProcessor.process(fileContent)).thenReturn(result);
+        when(appFileProcessor.process(fileContent)).thenReturn(result);
 
         application.run();
 

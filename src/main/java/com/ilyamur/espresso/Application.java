@@ -13,7 +13,7 @@ public class Application {
         ApplicationConfigLoader.load(args);
 
         Application application = new Application(
-                new FileProcessor(),
+                new AppFileProcessor(),
                 new AppFileReader(),
                 new AppOutput());
 
@@ -22,19 +22,19 @@ public class Application {
 
     //
 
-    private final FileProcessor fileProcessor;
+    private final AppFileProcessor appFileProcessor;
     private final AppFileReader appFileReader;
     private AppOutput appOutput;
 
-    public Application(FileProcessor fileProcessor, AppFileReader appFileReader, AppOutput appOutput) {
-        this.fileProcessor = fileProcessor;
+    public Application(AppFileProcessor appFileProcessor, AppFileReader appFileReader, AppOutput appOutput) {
+        this.appFileProcessor = appFileProcessor;
         this.appFileReader = appFileReader;
         this.appOutput = appOutput;
     }
 
     public void run() {
         String fileContent = appFileReader.readFile(ApplicationConfig.argsMap.file);
-        String processingResult = fileProcessor.process(fileContent);
+        String processingResult = appFileProcessor.process(fileContent);
         appOutput.output(processingResult);
     }
 }
