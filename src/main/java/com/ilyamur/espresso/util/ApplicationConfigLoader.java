@@ -23,14 +23,6 @@ public class ApplicationConfigLoader {
         ApplicationConfig.load(mainConfig);
     }
 
-    public static Config getArgsMap(Config config) {
-        return config.getConfig("args-map");
-    }
-
-    public static List<Object> getArgsList(Config config) {
-        return config.getList("args-list").unwrapped();
-    }
-
     private static Config getEnvironmentConfig(Config argsConfig) {
         Config appConfig = ConfigFactory.empty();
         try {
