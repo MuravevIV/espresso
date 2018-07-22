@@ -1,8 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <configuration>
 
-    <!--
-
     <appender name="console" class="ch.qos.logback.core.ConsoleAppender">
         <layout class="ch.qos.logback.classic.PatternLayout">
             <Pattern>
@@ -14,7 +12,5 @@
     <root level="info">
         <appender-ref ref="console"/>
     </root>
-
-    -->
 
 </configuration>
