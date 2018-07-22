@@ -7,23 +7,31 @@ import com.typesafe.config.Config;
 import com.typesafe.config.ConfigException;
 import com.typesafe.config.ConfigFactory;
 
+import javax.inject.Inject;
 import java.io.File;
 import java.util.List;
 import java.util.Map;
 
 public class ApplicationConfigLoader {
 
-    public static void load(String[] args) {
+    private ApplicationConfig applicationConfig;
+
+    @Inject
+    public ApplicationConfigLoader(ApplicationConfig applicationConfig) {
+        this.applicationConfig = applicationConfig;
+    }
+
+    public void load(String[] args) {
         Config argsConfig = getArgumentsConfig(args);
         Config envConfig = getEnvironmentConfig(argsConfig);
         Config defaultConfig = ConfigFactory.defaultReference();
 
         Config mainConfig = argsConfig.withFallback(envConfig.withFallback(defaultConfig));
 
-        ApplicationConfig.load(mainConfig);
+        applicationConfig.load(mainConfig);
     }
 
-    private static Config getEnvironmentConfig(Config argsConfig) {
+    private Config getEnvironmentConfig(Config argsConfig) {
         Config appConfig = ConfigFactory.empty();
         try {
             String appConfigPath = argsConfig.getString("args-map.config");
@@ -36,7 +44,7 @@ public class ApplicationConfigLoader {
         return appConfig;
     }
 
-    private static Config getArgumentsConfig(String[] args) {
+    private Config getArgumentsConfig(String[] args) {
         List<String> argsList = Lists.newArrayList();
         Map<String, String> argsMap = Maps.newHashMap();
         String key = null;

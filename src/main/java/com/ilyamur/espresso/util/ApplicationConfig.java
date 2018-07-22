@@ -4,28 +4,29 @@ import com.typesafe.config.Config;
 import com.typesafe.config.ConfigFactory;
 
 import java.util.List;
+import java.util.Map;
 import java.util.stream.Collectors;
 
 public class ApplicationConfig {
 
-    private static Config mainConfig = ConfigFactory.empty();
+    private static final String ROOT_PREFIX = "com.ilyamur.espresso.";
+    private static final String ARGS_LIST = "args-list";
+    private static final String ARGS_MAP = "args-map";
 
-    static void load(Config mainConfig) {
-        ApplicationConfig.mainConfig = mainConfig;
+    private Config mainConfig = ConfigFactory.empty();
+
+    void load(Config mainConfig) {
+        this.mainConfig = mainConfig;
     }
 
-    private static String ROOT_PREFIX = "com.ilyamur.espresso.";
-
-    public static List<String> getArgsList() {
-        return mainConfig.getList("args-list").unwrapped().stream()
+    public List<String> getArgsList() {
+        return mainConfig.getList(ARGS_LIST).unwrapped().stream()
                 .map(Object::toString)
                 .collect(Collectors.toList());
     }
 
-    public static class argsMap {
-
-        private static String ARGS_MAP = "args-map.";
-
-        public static final String file = mainConfig.getString(ARGS_MAP + "file");
+    public Map<String, String> getArgsMap() {
+        return mainConfig.getObject(ARGS_MAP).unwrapped().entrySet().stream()
+                .collect(Collectors.toMap(Map.Entry::getKey, b -> b.getValue().toString()));
     }
 }
