@@ -1,26 +1,27 @@
 package com.ilyamur.espresso.util;
 
-import com.typesafe.config.Config;
+import com.typesafe.config.ConfigFactory;
+import org.junit.Before;
 import org.junit.Test;
 
-import java.util.List;
+import java.util.Collections;
 
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertEquals;
 
 public class ApplicationConfigTest {
 
+    private ApplicationConfig applicationConfig;
+
+    @Before
+    public void before() {
+        applicationConfig = new ApplicationConfig();
+    }
+
     @Test
     public void testLoad() {
-        Config config = ApplicationConfig.load(new String[]{"-config", "conf/application.conf.dev", "x"});
+        applicationConfig.load(ConfigFactory.parseString("{args-list: [\"x\"], args-map: {file: \"conf/application.conf.dev\"}}"));
 
-        List<Object> argsList = ApplicationConfig.getArgsList(config);
-        assertEquals(1, argsList.size());
-        assertEquals("x", argsList.get(0));
-
-        Config argsMapConfig = ApplicationConfig.getArgsMap(config);
-        assertFalse(argsMapConfig.isEmpty());
-        assertEquals("conf/application.conf.dev", argsMapConfig.getString("config"));
-
-        assertNotNull(config.getString("user.dir"));
+        assertEquals(Collections.singletonList("x"), applicationConfig.getArgsList());
+        assertEquals(Collections.singletonMap("file", "conf/application.conf.dev"), applicationConfig.getArgsMap());
     }
 }
