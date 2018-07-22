@@ -7,17 +7,17 @@ import java.util.List;
 
 import static org.junit.Assert.*;
 
-public class ApplicationConfigTest {
+public class ApplicationConfigLoaderTest {
 
     @Test
     public void testLoad() {
-        Config config = ApplicationConfig.load(new String[]{"-config", "conf/application.conf.dev", "x"});
+        Config config = ApplicationConfigLoader.load(new String[]{"-config", "conf/application.conf.dev", "x"});
 
-        List<Object> argsList = ApplicationConfig.getArgsList(config);
+        List<Object> argsList = ApplicationConfigLoader.getArgsList(config);
         assertEquals(1, argsList.size());
         assertEquals("x", argsList.get(0));
 
-        Config argsMapConfig = ApplicationConfig.getArgsMap(config);
+        Config argsMapConfig = ApplicationConfigLoader.getArgsMap(config);
         assertFalse(argsMapConfig.isEmpty());
         assertEquals("conf/application.conf.dev", argsMapConfig.getString("config"));
 
